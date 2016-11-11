@@ -1,4 +1,4 @@
-# DragonbonesCocos2dxLua
+# DragonbonesCocos2dx
 Dragonbones for Cocos2dx & Lua
 
 # 这个项目做了什么？
@@ -25,7 +25,7 @@ frameworks\cocos2d-x\cocos\scripting\lua-bindings\auto\api
 目前这些 API 现在已经可以运行官方的范例了，还会看情况添加，如果你需要更多的 API，可以自己在 dragonbones.ini 添加。
 API 名称规则基本和 CPP 版本一样，调用时以 db 开头，比如：db:CCFacotry()，更多使用方法你可以看已经做好的 Demo。
 ###one more thing
-事件回调增加了两个方法在 CCArmatureDisplay 中，分别为：
+为了让cocos2dxlua中可以使用事件回调，所以增加了两个方法在 CCArmatureDisplay 中，分别为：
 
 **addDragonEventListener** 添加监听回调，参数为一个函数。你可以这样写 
 ```
