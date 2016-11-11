@@ -31,7 +31,7 @@ API 名称规则基本和 CPP 版本一样，调用时以 db 开头，比如：d
 ```
 db.display:addDragonEventListener(handler(self,self.callbackfunc))
 ```
-**addDragonEventType** 添加监回调类型，参数为字符串。
+**addDragonEventType** 添加监听事件类型，参数为字符串。
 
 # 其他
 应该还有不完善的地方，欢迎补充。
