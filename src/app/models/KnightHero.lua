@@ -47,7 +47,7 @@ function KnightHero:ctor()
 --    armArmatureDisplay:getEventDispatcher():addEventListenerWithFixedPriority(listener2,1)
 --    armArmatureDisplay:getEventDispatcher():addEventListenerWithSceneGraphPriority(listener, armArmatureDisplay)
 
-    armArmatureDisplay:bindEventListener(handler(self,self._armEventHandler))
+    armArmatureDisplay:bindDragonEventListener(handler(self,self._armEventHandler))
     armArmatureDisplay:addDragonEventType("frameEvent");
     armArmatureDisplay:addDragonEventType("complete");
 

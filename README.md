@@ -42,9 +42,9 @@ API 名称规则基本和 CPP 版本一样，调用时以 db 开头，比如：d
 ###one more thing
 为了让 cocos2dxlua 中可以使用事件回调，所以增加了两个方法在 CCArmatureDisplay 中，分别为：
 
-**bindEventListener** 绑定监听回调，参数为一个函数。你可以这样写 
+**bindDragonEventListener** 绑定监听回调，参数为一个函数。你可以这样写 
 
-`armatureDisplay:bindEventListener(handler(self, self.callbackfunc))`
+`armatureDisplay:bindDragonEventListener(handler(self, self.callbackfunc))`
 
 **addDragonEventType** 添加监听事件类型，参数为字符串。可以添加多个，回调信息将返回到上面绑定的函数中。
 
@@ -96,8 +96,8 @@ At present these APIs can now run the official example, and See also added, if y
 ### one more thing
 In order for cocos2dxlua to use the event callback, two methods have been added in the CCArmatureDisplay, respectively:
 
-**bindEventListener** Binds the listener callback as a function. You can write like this
+**bindDragonEventListener** Binds the listener callback as a function. You can write like this
 
-`armatureDisplay:bindEventListener (handler (self, self.callbackfunc))`
+`armatureDisplay:bindDragonEventListener (handler (self, self.callbackfunc))`
 
 **addDragonEventType** Adds a listener event type with a string argument. You can add multiple, callback information will be returned to the above binding function.

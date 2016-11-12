@@ -66,7 +66,7 @@ public:
 		return &(_armature->getAnimation());
 	}
 
-	void bindEventListener(const ccDragonEventCallback& callback);
+	void bindDragonEventListener(const ccDragonEventCallback& callback);
 
 	void addDragonEventType(const std::string& type);
 

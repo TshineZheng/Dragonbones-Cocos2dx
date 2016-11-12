@@ -87,7 +87,7 @@ void CCArmatureDisplay::advanceTimeBySelf(bool on)
     }
 }
 
-void CCArmatureDisplay::bindEventListener(const ccDragonEventCallback & callback)
+void CCArmatureDisplay::bindDragonEventListener(const ccDragonEventCallback & callback)
 {
 	this->_dragonEventCallback = callback;
 }

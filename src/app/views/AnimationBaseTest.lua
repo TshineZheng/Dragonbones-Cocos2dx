@@ -23,7 +23,7 @@ function AnimationBaseTest:onCreate()
         self._armatureDisplay:setScale(1)
         self._armatureDisplay:addTo(self)
 
-        self._armatureDisplay:bindEventListener(handler(self,self._animationEventHandler))
+        self._armatureDisplay:bindDragonEventListener(handler(self,self._animationEventHandler))
         self._armatureDisplay:addDragonEventType("start")
         self._armatureDisplay:addDragonEventType("loopComplete")
         self._armatureDisplay:addDragonEventType("complete")
