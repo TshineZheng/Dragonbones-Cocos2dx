@@ -7,7 +7,6 @@ Dragonbones for Cocos2dx & Lua
 * 将 [DragonbonesCPP](https://github.com/DragonBones/DragonBonesCPP) 整理成方便 Cocos2dx 导入使用的形式。
 * 修改 Cocos2dx 的 lua-bindings 使其支持导出类的成员变量，以及修改其中的 rename_functions 规则，让它不再与 skip 规则冲突。
 * 修改 DragonbonesCPP 部分代码，使其更加方便导出到 Cocos2dx Lua 中使用，且尽量保持与原版使用规则相同。
-* 用 Cocos2dx Lua 实现 DragonbonesCPP 项目中的 4 个 Demo （还差一个，因为那个是鼠标控制的，所以……再说吧……）
 
 # 怎么运行？
 * 创建一个 Cocos2dx Lua 项目，然后将这些文件覆盖到项目根目录下。
@@ -62,7 +61,6 @@ API 名称规则基本和 CPP 版本一样，调用时以 db 开头，比如：d
 * Organize [DragonbonesCPP](https://github.com/DragonBones/DragonBonesCPP) to make it easier for Cocos2dx to import.
 * Modify the lua-bindings of Cocos2dx to support member variables of exported classes, and modify the rename_functions rule so that it no longer conflicts with skip rules.
 * Modify the DragonbonesCPP part of the code to make it more convenient to export to Cocos2dx Lua use, and try to keep with the original use of the same rules.
-* With Cocos2dx Lua project to achieve the four Demo of DragonbonesCPP project( one less, because that is the mouse control, so ... say it ...)
 
 # How to run?
 - Create a Cocos2dx Lua project, and then overwrite these files to the project root directory.

@@ -150,15 +150,10 @@ function KnightHero:_armEventHandler(typename, name, eventobj, obj)
             local amt = eventobj:Armature()
             local dsp = amt:getDisplay()    --   == obj
             local firePointBone = amt:getBone("bow")
-            local tsf = dsp:getNodeToWorldTransform()
             local localPoint = cc.vec3(firePointBone.global.x, -firePointBone.global.y, 0)
             local globalPoint = cc.p(0,0)
 
-            local testp = cc.vec3(0,0,0)
-
-            testp = cc.mat4.transformVector(tsf,localPoint,testp)
-
-            localPoint = dsp:convertToWorldSpace(testp)
+            localPoint = dsp:convertToWorldSpace(localPoint)
 
             globalPoint = localPoint
 
