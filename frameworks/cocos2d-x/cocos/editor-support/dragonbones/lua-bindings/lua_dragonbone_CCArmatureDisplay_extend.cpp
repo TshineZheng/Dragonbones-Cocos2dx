@@ -26,7 +26,7 @@ static int handleDragonEvent(int handler, cocos2d::Ref* sender, dragonBones::CCE
 	return 0;
 }
 
-static int lua_dragonbones_CCArmatureDisplay_addDragonEventListener(lua_State* L)
+static int lua_dragonbones_CCArmatureDisplay_bindEventListener(lua_State* L)
 {
 	if (nullptr == L)
 		return 0;
@@ -44,7 +44,7 @@ static int lua_dragonbones_CCArmatureDisplay_addDragonEventListener(lua_State* L
 #if COCOS2D_DEBUG >= 1
 	if (!cobj)
 	{
-		tolua_error(L, "invalid 'cobj' in function 'lua_dragonbones_CCArmatureDisplay_addDragonEventListener'", nullptr);
+		tolua_error(L, "invalid 'cobj' in function 'lua_dragonbones_CCArmatureDisplay_bindEventListener'", nullptr);
 		return 0;
 	}
 #endif
@@ -62,7 +62,7 @@ static int lua_dragonbones_CCArmatureDisplay_addDragonEventListener(lua_State* L
 
 		LUA_FUNCTION handler = (toluafix_ref_function(L, 2, 0));
 
-		cobj->addDragonEventListener([=](cocos2d::Ref* sender, dragonBones::CCEventObject* eventobj, const std::string type, const std::string name) {
+		cobj->bindEventListener([=](cocos2d::Ref* sender, dragonBones::CCEventObject* eventobj, const std::string type, const std::string name) {
 			handleDragonEvent(handler, sender, eventobj, type, name);
 		});
 
@@ -70,23 +70,23 @@ static int lua_dragonbones_CCArmatureDisplay_addDragonEventListener(lua_State* L
 		return 0;
 	}
 
-	luaL_error(L, "'addDragonEventListener' function of Widget has wrong number of arguments: %d, was expecting %d\n", argc, 1);
+	luaL_error(L, "'bindEventListener' function of Widget has wrong number of arguments: %d, was expecting %d\n", argc, 1);
 	return 0;
 
 #if COCOS2D_DEBUG >= 1
 	tolua_lerror:
-				tolua_error(L, "#ferror in function 'addDragonEventListener'.", &tolua_err);
+				tolua_error(L, "#ferror in function 'bindEventListener'.", &tolua_err);
 				return 0;
 #endif
 }
 
-static void extendGame(lua_State* L)
+static void extendFunc(lua_State* L)
 {
 	lua_pushstring(L, "db.CCArmatureDisplay");
 	lua_rawget(L, LUA_REGISTRYINDEX);
 	if (lua_istable(L, -1))
 	{
-		tolua_function(L, "addDragonEventListener", lua_dragonbones_CCArmatureDisplay_addDragonEventListener);
+		tolua_function(L, "bindEventListener", lua_dragonbones_CCArmatureDisplay_bindEventListener);
 	}
 	lua_pop(L, 1);
 }
@@ -95,7 +95,7 @@ int register_dragonbone_CCArmatureDisplay_extend(lua_State* L)
 {
 	if (nullptr == L)
 		return 0;
-	extendGame(L);
+	extendFunc(L);
 
 	return 0;
 }
