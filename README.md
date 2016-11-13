@@ -50,6 +50,7 @@ API 名称规则基本和 CPP 版本一样，调用时以 db 开头，比如：d
 
 # 其他
 应该还有不完善的地方，欢迎补充。
+有需要的话，你还可以到我的[博客](http://blog.tshine.me/)查看更加详细的[使用教程](http://blog.tshine.me/cocos2d-x%E4%BD%BF%E7%94%A8%E9%AA%A8%E9%AA%BC%E5%8A%A8%E7%94%BBdragonbones.html)
 
 
 ------------
