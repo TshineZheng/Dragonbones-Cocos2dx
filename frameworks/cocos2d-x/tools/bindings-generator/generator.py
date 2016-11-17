@@ -492,6 +492,7 @@ class NativeFunction(object):
         self.cursor = cursor
         self.func_name = cursor.spelling
         self.signature_name = self.func_name
+        self.using_func_name = self.func_name
         self.arguments = []
         self.argumtntTips = []
         self.static = cursor.kind == cindex.CursorKind.CXX_METHOD and cursor.is_static_method()
@@ -925,6 +926,9 @@ class NativeClass(object):
             # skip if variadic
             if self._current_visibility == cindex.AccessSpecifierKind.PUBLIC and not cursor.type.is_function_variadic():
                 m = NativeFunction(cursor)
+
+                m.using_func_name = self.generator.should_rename_function(self.class_name, m.func_name) or m.func_name
+
                 registration_name = m.func_name
                 # bail if the function is not supported (at least one arg not supported)
                 if m.not_supported:
@@ -969,6 +973,9 @@ class NativeClass(object):
                 return True
 
             m = NativeFunction(cursor)
+
+            m.using_func_name = self.generator.should_rename_function(self.class_name, m.func_name) or m.func_name
+
             m.is_constructor = True
             self.has_constructor = True
             if not self.methods.has_key('constructor'):
