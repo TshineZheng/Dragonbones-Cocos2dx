@@ -19,21 +19,21 @@
         
 --------------------------------
 -- 
--- @function [parent=#WorldClock] lua_advanceTime 
+-- @function [parent=#WorldClock] advanceTime 
 -- @param self
 -- @param #float passedTime
 -- @return WorldClock#WorldClock self (return value: db.WorldClock)
         
 --------------------------------
 -- 
--- @function [parent=#WorldClock] lua_remove 
+-- @function [parent=#WorldClock] remove 
 -- @param self
 -- @param #db.Armature armature
 -- @return WorldClock#WorldClock self (return value: db.WorldClock)
         
 --------------------------------
 -- 
--- @function [parent=#WorldClock] lua_add 
+-- @function [parent=#WorldClock] add 
 -- @param self
 -- @param #db.Armature armature
 -- @return WorldClock#WorldClock self (return value: db.WorldClock)

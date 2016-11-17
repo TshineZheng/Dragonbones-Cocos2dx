@@ -46,7 +46,7 @@
         
 --------------------------------
 -- 
--- @function [parent=#Armature] lua_getArmatureData 
+-- @function [parent=#Armature] getArmatureData 
 -- @param self
 -- @return ArmatureData#ArmatureData ret (return value: db.ArmatureData)
         
@@ -115,7 +115,7 @@
         
 --------------------------------
 -- 
--- @function [parent=#Armature] lua_getAnimation 
+-- @function [parent=#Armature] getAnimation 
 -- @param self
 -- @return Animation#Animation ret (return value: db.Animation)
         

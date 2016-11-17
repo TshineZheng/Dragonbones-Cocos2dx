@@ -5,7 +5,7 @@
 
 --------------------------------
 -- /
--- @function [parent=#BaseFactory] lua_replaceSlotDisplay 
+-- @function [parent=#BaseFactory] replaceSlotDisplay 
 -- @param self
 -- @param #string dragonBonesName
 -- @param #string armatureName
@@ -90,7 +90,7 @@
         
 --------------------------------
 -- 
--- @function [parent=#BaseFactory] lua_replaceSlotDisplayList 
+-- @function [parent=#BaseFactory] replaceSlotDisplayList 
 -- @param self
 -- @param #string dragonBonesName
 -- @param #string armatureName
@@ -100,7 +100,7 @@
         
 --------------------------------
 -- 
--- @function [parent=#BaseFactory] lua_copyAnimationsToArmature 
+-- @function [parent=#BaseFactory] copyAnimationsToArmature 
 -- @param self
 -- @param #db.Armature toArmature
 -- @param #string fromArmatreName

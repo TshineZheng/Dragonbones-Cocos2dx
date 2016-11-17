@@ -5,28 +5,28 @@
 
 --------------------------------
 -- 
--- @function [parent=#Transform] lua_fromMatrix 
+-- @function [parent=#Transform] fromMatrix 
 -- @param self
 -- @param #db.Matrix m
 -- @return Transform#Transform ret (return value: db.Transform)
         
 --------------------------------
 -- 
--- @function [parent=#Transform] lua_toMatrix 
+-- @function [parent=#Transform] toMatrix 
 -- @param self
 -- @param #db.Matrix m
 -- @return Transform#Transform ret (return value: db.Transform)
         
 --------------------------------
 -- 
--- @function [parent=#Transform] lua_minus 
+-- @function [parent=#Transform] minus 
 -- @param self
 -- @param #db.Transform v
 -- @return Transform#Transform ret (return value: db.Transform)
         
 --------------------------------
 -- 
--- @function [parent=#Transform] lua_add 
+-- @function [parent=#Transform] add 
 -- @param self
 -- @param #db.Transform v
 -- @return Transform#Transform ret (return value: db.Transform)
@@ -46,7 +46,7 @@
         
 --------------------------------
 -- /
--- @function [parent=#Transform] lua_identity 
+-- @function [parent=#Transform] identity 
 -- @param self
 -- @return Transform#Transform ret (return value: db.Transform)
         

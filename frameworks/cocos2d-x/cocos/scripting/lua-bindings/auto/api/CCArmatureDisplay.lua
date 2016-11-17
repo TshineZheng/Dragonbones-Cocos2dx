@@ -59,7 +59,7 @@
         
 --------------------------------
 -- 
--- @function [parent=#CCArmatureDisplay] lua_getAnimation 
+-- @function [parent=#CCArmatureDisplay] getAnimation 
 -- @param self
 -- @return Animation#Animation ret (return value: db.Animation)
         

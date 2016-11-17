@@ -45,7 +45,7 @@
         
 --------------------------------
 -- 
--- @function [parent=#AnimationState] lua_getAnimationData 
+-- @function [parent=#AnimationState] getAnimationData 
 -- @param self
 -- @return AnimationData#AnimationData ret (return value: db.AnimationData)
         
