@@ -5,11 +5,16 @@
 
 DRAGONBONES_NAMESPACE_BEGIN
 
-CCFactory CCFactory::factory;
+CCFactory* CCFactory::_instance = nullptr;
 
 CCFactory* CCFactory::getInstance()
 {
-	return &factory;
+	if (!_instance)
+	{
+		_instance = new (std::nothrow) CCFactory();
+		CCASSERT(_instance, "FATAL: Not enough memory");
+	}
+	return _instance;
 }
 
 CCFactory::CCFactory() 
@@ -22,6 +27,7 @@ CCFactory::CCFactory()
 CCFactory::~CCFactory() 
 {
     clear();
+	_instance = nullptr;
 }
 
 TextureAtlasData * CCFactory::_generateTextureAtlasData(TextureAtlasData* textureAtlasData, void* textureAtlas) const
