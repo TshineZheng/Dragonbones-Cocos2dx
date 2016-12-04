@@ -23,9 +23,8 @@ CCArmatureDisplay::CCArmatureDisplay() :
     _dispatcher(nullptr)
 {
     _dispatcher = new cocos2d::EventDispatcher();
-    _dispatcher->retain();
     this->setEventDispatcher(_dispatcher);
-
+    _dispatcher->setEnabled(true);
 	_ccEventObject = CCEventObject::create();
 	_ccEventObject->retain();
 }
@@ -33,25 +32,15 @@ CCArmatureDisplay::~CCArmatureDisplay() {}
 
 void CCArmatureDisplay::_onClear()
 {
-    //_dispatcher->removeAllEventListeners();
-
-    this->setEventDispatcher(cocos2d::Director::getInstance()->getEventDispatcher());
-
-    if (_dispatcher)
-    {
-        _dispatcher->release();
-        delete _dispatcher;
-        _dispatcher = nullptr;
-    }
-
 	if (_ccEventObject)
 	{
 		_ccEventObject->release();
 		_ccEventObject = nullptr;
 	}
+    this->setEventDispatcher(cocos2d::Director::getInstance()->getEventDispatcher());
 
     _armature = nullptr;
-
+    CC_SAFE_RELEASE(_dispatcher);
     this->release();
 }
 
@@ -87,38 +76,17 @@ void CCArmatureDisplay::advanceTimeBySelf(bool on)
     }
 }
 
-void CCArmatureDisplay::bindDragonEventListener(const ccDragonEventCallback & callback)
+void CCArmatureDisplay::addEvent(const std::string& type, const std::function<void(EventObject*)>& callback)
 {
-	this->_dragonEventCallback = callback;
+    auto lambda = [callback](cocos2d::EventCustom* event) -> void {
+        callback(static_cast<EventObject*>(event->getUserData()));
+    };
+    _dispatcher->addCustomEventListener(type, lambda);
 }
 
-void CCArmatureDisplay::addDragonEventType(const std::string& type)
+void CCArmatureDisplay::removeEvent(const std::string& type)
 {
-	auto dsp = getEventDispatcher();
-	if (dsp)
-	{
-		dsp->setEnabled(true);
-		dsp->addCustomEventListener(type, std::bind(&CCArmatureDisplay::_animationEventHandler, this, std::placeholders::_1));
-	}
-}
-
-void CCArmatureDisplay::removeDragonEventType(const std::string & type)
-{
-	auto dsp = getEventDispatcher();
-	if (dsp)
-	{
-		dsp->removeCustomEventListeners(type);
-	}
-}
-
-void CCArmatureDisplay::_animationEventHandler(cocos2d::EventCustom * event) const
-{
-	const auto eventObject = (dragonBones::EventObject*)event->getUserData();
-	if (_dragonEventCallback)
-	{
-		_ccEventObject->eventObj = eventObject;
-		_dragonEventCallback((cocos2d::Ref*)this, _ccEventObject, event->getEventName(), eventObject->name);
-	}
+    _dispatcher->removeCustomEventListeners(type);
 }
 
 DBCCSprite* DBCCSprite::create()
@@ -225,6 +193,40 @@ void DBCCSprite::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 cocos2d::PolygonInfo& DBCCSprite::getPolygonInfoModify()
 {
     return this->_polyInfo;
+}
+
+void CCArmatureDisplay::bindDragonEventListener(const ccDragonEventCallback & callback)
+{
+	this->_dragonEventCallback = callback;
+}
+
+void CCArmatureDisplay::addDragonEventType(const std::string& type)
+{
+	auto dsp = getEventDispatcher();
+	if (dsp)
+	{
+		dsp->setEnabled(true);
+		dsp->addCustomEventListener(type, std::bind(&CCArmatureDisplay::_animationEventHandler, this, std::placeholders::_1));
+	}
+}
+
+void CCArmatureDisplay::removeDragonEventType(const std::string & type)
+{
+	auto dsp = getEventDispatcher();
+	if (dsp)
+	{
+		dsp->removeCustomEventListeners(type);
+	}
+}
+
+void CCArmatureDisplay::_animationEventHandler(cocos2d::EventCustom * event) const
+{
+	const auto eventObject = (dragonBones::EventObject*)event->getUserData();
+	if (_dragonEventCallback)
+	{
+		_ccEventObject->eventObj = eventObject;
+		_dragonEventCallback((cocos2d::Ref*)this, _ccEventObject, event->getEventName(), eventObject->name);
+	}
 }
 
 DRAGONBONES_NAMESPACE_END

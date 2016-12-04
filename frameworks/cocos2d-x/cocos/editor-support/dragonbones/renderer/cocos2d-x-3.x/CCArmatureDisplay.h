@@ -2,8 +2,8 @@
 #define DRAGONBONES_CC_ARMATURE_DISPLAY_CONTAINER_H
 
 #include "dragonBones/DragonBonesHeaders.h"
-#include "CCEventObject.h"
 #include "cocos2d.h"
+#include "CCEventObject.h"
 
 DRAGONBONES_NAMESPACE_BEGIN
 
@@ -45,6 +45,8 @@ public:
 
 public:
     virtual void advanceTimeBySelf(bool on) override;
+    void addEvent(const std::string& type, const std::function<void(EventObject*)>& callback);
+    void removeEvent(const std::string& type);
 
     inline bool hasEvent(const std::string& type) const override
     {
