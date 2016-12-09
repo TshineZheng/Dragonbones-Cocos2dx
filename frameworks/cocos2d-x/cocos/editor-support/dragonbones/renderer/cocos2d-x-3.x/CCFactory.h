@@ -32,6 +32,7 @@ public:
     virtual CCArmatureDisplay* buildArmatureDisplay(const std::string& armatureName, const std::string& dragonBonesName = "", const std::string& skinName = "") const;
     virtual cocos2d::Sprite* getTextureDisplay(const std::string& textureName, const std::string& dragonBonesName = "") const;
     virtual CCArmatureDisplay* getSoundEventManater() const;
+
 private:
     void _initTextureAtlasData(TextureAtlasData* atlasData);
 };
