@@ -19,7 +19,7 @@ function HelloDragonBonesScene:onCreate()
     self._armatureDisplay = null
     self._factory = null
     
-    self._factory = db.CCFactory:new()
+    self._factory = db.CCFactory:getInstance()
 
     -- Load Dragonbones Data.
     self._dragonBonesData = self._factory:loadDragonBonesData("DragonBoy/DragonBoy.json")
